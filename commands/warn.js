@@ -25,14 +25,14 @@ module.exports.run = async (bot, message, args) => {
   let warnEmbed = new Discord.RichEmbed()
   .setDescription("Warns")
   .setAuthor(message.author.username)
-  .setColor("#ff0000")
-  .addField("Warned User", `<@${wUser.id}>`)
-  .addField("Warned In", message.channel)
-  .addField("Number of Warnings", warns[wUser.id].warns)
+  .setColor("#006400")
+  .addField("User:", `<@${wUser.id}>`)
+  .addField("Channel:", message.channel)
+  .addField("Warning(s)", warns[wUser.id].warns)
   .addField("Reason", reason);
 
-  let warnchannel = message.guild.channels.find(`name`, "incidents");
-  if(!warnchannel) return message.reply("Couldn't find incidents channel!");
+  let warnchannel = message.guild.channels.find(`name`, "logs");
+  if(!warnchannel) return message.reply("Couldn't find logs channel!");
 
   warnchannel.send(warnEmbed);
 

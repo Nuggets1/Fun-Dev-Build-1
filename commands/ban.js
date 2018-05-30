@@ -9,15 +9,15 @@ module.exports.run = async (bot, message, args) => {
 
    let banEmbed = new Discord.RichEmbed()
    .setDescription("Ban")
-   .setColor("#ff0000")
-   .addField("Banned User", `${bUser} with ID: ${bUser.id}`)
-   .addField("Banned By", `<@${message.author.id}> with ID: ${message.author.id}`)
-   .addField("Banned In", message.channel)
-   .addField("Time", message.createdAt)
-   .addField("Reason", bReason);
+   .setColor("#006400")
+   .addField("User:", `${bUser} with ID: ${bUser.id}`)
+   .addField("Staff:", `<@${message.author.id}> with ID: ${message.author.id}`)
+   .addField("Channe:", message.channel)
+   .addField("Time:", message.createdAt)
+   .addField("Reason:", bReason);
 
-   let banChannel = message.guild.channels.find(`name`, "incidents");
-   if(!banChannel) return message.channel.send("Can't find incidents channel.");
+   let banChannel = message.guild.channels.find(`name`, "logs");
+   if(!banChannel) return message.channel.send("Can't find logs channel.");
 
    message.guild.member(bUser).ban(bReason);
    banChannel.send(banEmbed);
