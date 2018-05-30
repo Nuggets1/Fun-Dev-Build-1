@@ -33,14 +33,14 @@ module.exports.run = async (bot, message, args) => {
 
   let tomuteEmbed = new Discord.RichEmbed()
   .setDescription("Tempmute")
-  .setColor("#ff0000")
-  .addField("Tempmuted User", `${tomute} with ID: ${tomute.id}`)
-  .addField("Tempmuted By", `<@${message.author.id}> with ID: ${message.author.id}`)
-  .addField("Temputed In", message.channel)
-  .addField("Time", ms(ms(mutetime)));
+  .setColor("#006400")
+  .addField("User:", `${tomute} with ID: ${tomute.id}`)
+  .addField("Staff:", `<@${message.author.id}> with ID: ${message.author.id}`)
+  .addField("Channel:", message.channel)
+  .addField("Time:", ms(ms(mutetime)));
 
-  let tomuteChannel = message.guild.channels.find(`name`, "incidents");
-  if(!tomuteChannel) return message.channel.send("Can't find incidents channel.");
+  let tomuteChannel = message.guild.channels.find(`name`, "logs");
+  if(!tomuteChannel) return message.channel.send("Can't find logs channel.");
 
   tomuteChannel.send(tomuteEmbed);
 

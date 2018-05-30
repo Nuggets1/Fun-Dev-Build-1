@@ -9,12 +9,12 @@ module.exports.run = async (bot, message, args) => {
 
    let kickEmbed = new Discord.RichEmbed()
    .setDescription("Kick")
-   .setColor("#ff0000")
-   .addField("Kicked User", `${kUser} with ID: ${kUser.id}`)
-   .addField("Kicked By", `<@${message.author.id}> with ID: ${message.author.id}`)
-   .addField("Kicked In", message.channel)
-   .addField("Time", message.createdAt)
-   .addField("Reason", kReason);
+   .setColor("#006400")
+   .addField("User:", `${kUser} with ID: ${kUser.id}`)
+   .addField("Staff:", `<@${message.author.id}> with ID: ${message.author.id}`)
+   .addField("Channe:", message.channel)
+   .addField("Time:", message.createdAt)
+   .addField("Reason:", kReason);
 
    let kickChannel = message.guild.channels.find(`name`, "incidents");
    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
